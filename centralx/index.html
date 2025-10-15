@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Central X - O melhor servidor de DayZ do Brasil. Explore, sobreviva e construa seu império em um mundo pós-apocalíptico único!">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Central X - Servidor de DayZ Brasil">
+    <meta property="og:description" content="O melhor servidor de DayZ do Brasil. PVP intenso, economia única e eventos especiais!">
+    
+    <title>Central X - Servidor de DayZ Brasil</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Roboto:wght@400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===============================================
+           RESET & BASE STYLES
+           =============================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0908;
+            --bg-secondary: #181715;
+            --accent-red: #ff3333;
+            --accent-red-dark: #b21400;
+            --accent-blue: #5d89d2;
+            --accent-blue-glow: #5271ff;
+            --text-primary: #ffffff;
+            --text-secondary: #dcd6d6;
+            --text-muted: #747474;
+            --text-dark: #222222;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* ===============================================
+           ANIMATED BACKGROUND
+           =============================================== */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 51, 51, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(93, 137, 210, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ===============================================
+           MAIN CONTAINER
+           =============================================== */
+        .container {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* ===============================================
+           HERO SECTION
+           =============================================== */
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 150px 20px 100px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: clamp(44px, 10vw, 120px);
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 80px;
+            color: var(--text-secondary);
+            text-shadow: 
+                0 0 20px rgba(135, 213, 216, 0.5),
+                0 0 40px rgba(135, 213, 216, 0.3),
+                0 5px 15px rgba(0, 0, 0, 0.5);
+            animation: fadeInScale 1s ease-out;
+            position: relative;
+        }
+
+        .hero-title .accent {
+            color: var(--accent-red);
+            text-shadow: 
+                0 0 20px rgba(255, 51, 51, 0.6),
+                0 0 40px rgba(255, 51, 51, 0.4),
+                0 5px 15px rgba(178, 20, 0, 0.5);
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .hero-subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: clamp(17px, 3vw, 28px);
+            line-height: 1.5;
+            margin-bottom: 40px;
+            color: var(--text-secondary);
+            text-shadow: 
+                2px 2px 8px rgba(255, 51, 51, 0.4),
+                0 0 15px rgba(255, 51, 51, 0.2);
+            animation: fadeInUp 1s ease-out 0.3s both;
+            max-width: 800px;
+        }
+
+        .hero-subtitle .highlight {
+            color: var(--accent-red);
+            font-weight: 700;
+        }
+
+        .hero-description {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-description p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .benefits-list {
+            list-style: none;
+            text-align: left;
+            display: grid;
+            gap: 12px;
+        }
+
+        .benefits-list li {
+            font-size: 16px;
+            color: var(--text-secondary);
+            padding-left: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .benefits-list li:hover {
+            transform: translateX(5px);
+        }
+
+        .benefits-list li strong {
+            color: #ffffff;
+        }
+
+        .server-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(93, 137, 210, 0.15);
+            border-radius: 12px;
+            border: 1px solid rgba(93, 137, 210, 0.3);
+            text-align: center;
+        }
+
+        .server-info p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .server-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .server-info code {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            color: #3cd48f;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .age-rating {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 165, 0, 0.15);
+            border-left: 4px solid #ffa500;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .age-rating p {
+            margin: 0;
+            font-size: 14px;
+            color: #ffd700;
+            line-height: 1.5;
+        }
+
+        .age-rating strong {
+            color: #ffa500;
+        }
+
+        /* ===============================================
+           BUTTON STYLES
+           =============================================== */
+        .discord-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 20px 60px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(25px, 4vw, 40px);
+            font-weight: 700;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #5d89d2 0%, #4a6fb8 100%);
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 
+                0 0 30px rgba(82, 113, 255, 0.5),
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .discord-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .discord-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 0 50px rgba(82, 113, 255, 0.8),
+                0 15px 40px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .discord-button:hover::before {
+            left: 100%;
+        }
+
+        .discord-button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        /* Discord Icon */
+        .discord-icon {
+            width: 35px;
+            height: 35px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        .discord-button:hover .discord-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        /* ===============================================
+           FOOTER
+           =============================================== */
+        footer {
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-contact {
+            margin-bottom: 16px;
+        }
+
+        .footer-contact p {
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+
+        .footer-email {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .footer-email:hover {
+            color: var(--accent-blue-glow);
+            text-decoration: underline;
+        }
+
+        .footer-copyright {
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent-blue);
+        }
+
+        .footer-link:hover::after {
+            width: 100%;
+        }
+
+        .footer-divider {
+            color: var(--text-muted);
+            font-weight: 300;
+            opacity: 0.5;
+        }
+
+        /* ===============================================
+           ANIMATIONS
+           =============================================== */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* ===============================================
+           RESPONSIVE DESIGN
+           =============================================== */
+        @media screen and (max-width: 1024px) {
+            .hero {
+                padding: 100px 20px 80px;
+            }
+
+            .hero-title {
+                margin-bottom: 60px;
+                letter-spacing: -1px;
+            }
+
+            .hero-subtitle {
+                margin-bottom: 35px;
+            }
+
+            .discord-button {
+                padding: 18px 50px;
+            }
+
+            .discord-icon {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero {
+                padding: 60px 15px 50px;
+            }
+
+            .hero-title {
+                margin-bottom: 40px;
+                letter-spacing: 0;
+                line-height: 1.2;
+            }
+
+            .hero-subtitle {
+                margin-bottom: 30px;
+                line-height: 1.6;
+            }
+
+            .hero-description {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+
+            .hero-description p {
+                font-size: 16px;
+            }
+
+            .benefits-list li {
+                font-size: 14px;
+            }
+
+            .server-info {
+                padding: 15px;
+                margin-top: 20px;
+            }
+
+            .server-info p {
+                font-size: 14px;
+            }
+
+            .server-info code {
+                font-size: 13px;
+                padding: 5px 10px;
+                display: inline-block;
+                word-break: break-all;
+            }
+
+            .age-rating {
+                padding: 12px;
+                margin-top: 15px;
+            }
+
+            .age-rating p {
+                font-size: 12px;
+            }
+
+            .discord-button {
+                padding: 16px 40px;
+                border-radius: 40px;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .discord-icon {
+                width: 25px;
+                height: 25px;
+            }
+
+            footer {
+                padding: 40px 15px;
+            }
+
+            .footer-contact p {
+                font-size: 14px;
+            }
+
+            .footer-copyright {
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+
+            .footer-links {
+                gap: 8px;
+            }
+
+            .footer-link {
+                font-size: 12px;
+            }
+        }
+
+        /* ===============================================
+           ACCESSIBILITY
+           =============================================== */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus states for keyboard navigation */
+        .discord-button:focus-visible,
+        .footer-link:focus-visible {
+            outline: 3px solid var(--accent-blue);
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <main class="hero">
+            <h1 class="hero-title">
+                CENTRAL <span class="accent">X</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                <span class="highlight">O melhor servidor de DayZ do Brasil</span>
+            </p>
+
+            <div class="hero-description">
+                <p>Explore, sobreviva e construa seu império em um mundo pós-apocalíptico único. O Central X oferece a melhor experiência de DayZ no Brasil!</p>
+                <ul class="benefits-list">
+                    <li>⚔️ <strong>PVP Intenso</strong> - Batalhas épicas em zonas de guerra customizadas</li>
+                    <li>💰 <strong>Economia In-Game</strong> - Sistema de moeda virtual do servidor para trocas de itens</li>
+                    <li>🎉 <strong>Eventos Especiais</strong> - Participe de eventos com recompensas virtuais no jogo</li>
+                    <li>🏗️ <strong>Sistema de Construção</strong> - Construa sua base e defenda seu território</li>
+                    <li>🌎 <strong>Servidor Brasileiro</strong> - Baixa latência e comunidade ativa em português</li>
+                </ul>
+                <div class="server-info">
+                    <p><strong>IP do Servidor:</strong> <code>172.84.94.174:2302</code></p>
+                    <p><strong>Nome no DayZ:</strong> <code>[BR] Central X</code></p>
+                </div>
+                <div class="age-rating">
+                    <p><strong>⚠️ Classificação:</strong> DayZ é um jogo de sobrevivência recomendado para maiores de 17 anos.</p>
+                </div>
+            </div>
+            
+            <a href="https://discord.com/invite/centralx" class="discord-button" aria-label="Entrar no Discord do servidor Central X de DayZ">
+                <svg class="discord-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                </svg>
+                ENTRAR NO DISCORD
+            </a>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-contact">
+                    <p>Contato: <a href="mailto:contato@centralx.com" class="footer-email">contato@centralx.com</a></p>
+                </div>
+
+                <p class="footer-copyright">
+                    © 2025 Central X - Servidor de DayZ Brasil. Todos os direitos reservados.<br>
+                    <span style="font-size: 13px; color: #555;">Desenvolvido por britto420</span>
+                </p>
+                
+                <nav class="footer-links" aria-label="Links legais">
+                    <a href="privacypolicy.html" class="footer-link">Política de Privacidade</a>
+                    <span class="footer-divider" aria-hidden="true">|</span>
+                    <a href="terms.html" class="footer-link">Termos de Uso</a>
+                    <span class="footer-divider" aria-hidden="true">|</span>
+                    <a href="disclaimer.html" class="footer-link">Disclaimer</a>
+                </nav>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
