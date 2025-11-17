@@ -40,8 +40,8 @@ a:hover{--bs-link-color-rgb:var(--bs-link-hover-color-rgb)}
 a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}
 
 /* Display Classes */
-.display-6{font-size:calc(1.375rem + 1.5vw);font-weight:700;line-height:1.2}
-@media (min-width:1200px){.display-6{font-size:2.5rem}}
+.display-6{font-size:calc(1.375rem + 1.0vw);font-weight:700;line-height:1.2}
+@media (min-width:1200px){.display-6{font-size:2.0rem}}
 
 /* Lists */
 .list-inline{list-style:none;padding-left:0}
