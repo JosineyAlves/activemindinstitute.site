@@ -1,0 +1,159 @@
+/* Shared Styles for Secondary Pages */
+@charset "UTF-8";
+
+/* Google Fonts - Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffffff;
+  color: #444444;
+  line-height: 1.8;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3 {
+  color: #444444;
+  margin-top: 40px;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+a {
+  color: #444444;
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul, ol {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Header Styles */
+header {
+  background-color: #c40000;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 55px;
+  position: relative;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  color: white;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  padding: 30px 20px;
+  border-top: 1px solid #eee;
+  margin-top: 60px;
+}
+
+footer a {
+  color: #888;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+main {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 15px;
+    min-height: 50px;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  main {
+    padding: 15px;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 8px 10px;
+    min-height: 45px;
+  }
+  
+  header h1 {
+    font-size: 1.3rem;
+  }
+  
+  main {
+    padding: 15px;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.4rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+
